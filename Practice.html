@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Yogasthali - AI Yoga Trainer</title>
+  <style>
+    body {
+      margin: 0;
+      font-family: Arial, sans-serif;
+      background: #f9d9f2;
+      display: flex;
+      flex-direction: column;
+      min-height: 100vh;
+    }
+
+    /* Navbar */
+    header {
+      background: white;
+      border-bottom: 1px solid #e5e5e5;
+      padding: 12px 50px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+
+    .logo {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+
+    .logo-circle {
+      width: 45px;
+      height: 45px;
+      background: lightgray;
+      border-radius: 50%;
+    }
+
+    nav a {
+      margin: 0 12px;
+      text-decoration: none;
+      color: black;
+      font-size: 14px;
+    }
+
+    .btn {
+      background: black;
+      color: white;
+      padding: 6px 16px;
+      border-radius: 6px;
+      font-size: 14px;
+      border: none;
+      cursor: pointer;
+    }
+
+    /* Main Section */
+    .main-container {
+      flex: 1;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      padding: 60px 20px;
+      gap: 80px;
+    }
+
+    .box {
+      width: 260px;
+      height: 330px;
+      background: #d9d9d9;
+      border-radius: 10px;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      text-align: center;
+      padding: 10px;
+    }
+
+    .pose-section {
+      text-align: center;
+    }
+
+    .timer {
+      margin-top: 10px;
+      font-size: 16px;
+    }
+
+    /* Footer */
+    footer {
+      background: white;
+      padding: 20px 40px;
+      font-size: 14px;
+      border-top: 1px solid #ddd;
+    }
+
+    .social {
+      margin-top: 10px;
+      display: flex;
+      gap: 10px;
+    }
+
+    .social div {
+      width: 18px;
+      height: 18px;
+      background: #d9d9d9;
+      border-radius: 4px;
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Navbar -->
+  <header>
+    <div class="logo">
+      <div class="logo-circle"></div>
+      <div>
+        <strong>Yogasthali</strong><br />
+        <small>AI Yoga Trainer</small>
+      </div>
+    </div>
+
+    <nav>
+      <a href="#">About</a>
+      <a href="#">Yoga</a>
+      <a href="#">Trainer</a>
+      <button class="btn">Sign In</button>
+    </nav>
+  </header>
+
+  <!-- Main Content -->
+  <div class="main-container">
+
+    <div class="box">Webcam Container</div>
+
+    <div class="pose-section">
+      <h2>Tadasana</h2>
+      <div class="box"></div>
+      <div class="timer">
+        <strong>00:00</strong><br />Seconds left to hold
+      </div>
+    </div>
+
+  </div>
+
+  <!-- Footer -->
+  <footer>
+    © 2025 Yogasthali. All rights reserved.
+    <div class="social">
+      <div></div><div></div><div></div><div></div>
+    </div>
+  </footer>
+
+</body>
+</html>
