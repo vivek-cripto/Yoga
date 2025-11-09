@@ -1,0 +1,261 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>About Yogasthali - AI Yoga Trainer</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: "Inter", Arial, sans-serif;
+      color: #333;
+      background-color: #fff;
+      display: flex;
+      flex-direction: column;
+      min-height: 100vh;
+    }
+
+    /* Navbar */
+    header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 1rem 2rem;
+      background: white;
+      box-shadow: 0 1px 4px rgba(0, 0, 0, 0.05);
+    }
+
+    .logo {
+      display: flex;
+      align-items: center;
+      gap: 0.75rem;
+    }
+
+    .logo-circle {
+      width: 40px;
+      height: 40px;
+      background: url(img/Logo.png) no-repeat center center;
+      background-size: cover;
+      border-radius: 50%;
+    }
+
+    .logo-text h1 {
+      font-size: 1rem;
+      font-weight: 600;
+    }
+
+    .logo-text h1>a {
+      text-decoration: none;
+      color: #000;
+    }
+
+    .logo-text p {
+      font-size: 0.8rem;
+      color: #6b7280;
+      margin-top: -2px;
+    }
+
+    nav {
+      display: flex;
+      align-items: center;
+      gap: 1.5rem;
+    }
+
+    nav a {
+      text-decoration: none;
+      color: #333;
+      font-weight: 500;
+      transition: color 0.2s;
+    }
+
+    nav a:hover {
+      color: #000;
+    }
+
+    .signin-btn {
+      background: #000;
+      color: #fff;
+      border: none;
+      padding: 0.5rem 1rem;
+      font-size: 0.8rem;
+      border-radius: 5px;
+      cursor: pointer;
+      transition: background 0.3s;
+    }
+
+    .signin-btn:hover {
+      background: #333;
+    }
+
+    /* About Section */
+    .about {
+      flex: 1;
+      background-color: #FFD9F9;
+      padding: 4rem 2rem;
+    }
+
+    .about-content {
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      justify-content: space-between;
+      max-width: 1200px;
+      margin: 0 auto;
+      gap: 2rem;
+    }
+
+    .about-text {
+      flex: 1 1 500px;
+    }
+
+    .about-text h2 {
+      font-size: 2rem;
+      font-weight: 700;
+      margin-bottom: 0.5rem;
+    }
+
+    .about-text h3 {
+      font-size: 1rem;
+      color: #9ca3af;
+      margin-bottom: 1.5rem;
+    }
+
+    .about-text p {
+      color: #333;
+      line-height: 1.6;
+      margin-bottom: 1rem;
+    }
+
+    .about-image {
+      flex: 1 1 400px;
+      text-align: right;
+    }
+
+    .about-image img {
+      width: 100%;
+      max-width: 450px;
+      border-radius: 20px;
+    }
+
+    /* Footer */
+    footer {
+      background: #fff;
+      padding: 4rem 3rem;
+      text-align: center;
+      color: #666;
+      font-size: 0.9rem;
+      border-top: 1px solid #eee;
+    }
+
+    .social-icons {
+      margin-top: 2rem;
+    }
+
+    .social-icons a {
+      color: #555;
+      margin: 0 0.5rem;
+      text-decoration: none;
+      font-size: 1rem;
+      transition: color 0.3s;
+    }
+
+    .social-icons a:hover {
+      color: #000;
+    }
+
+    /* Responsive */
+    @media (max-width: 900px) {
+      .about-content {
+        flex-direction: column;
+        text-align: left;
+      }
+
+      .about-image {
+        text-align: center;
+      }
+
+      .about-text h2 {
+        font-size: 1.75rem;
+      }
+    }
+  </style>
+</head>
+
+<body>
+  <!-- Navbar -->
+  <header>
+    <div class="logo">
+      <div class="logo-circle"></div>
+      <div class="logo-text">
+        <h1><a href="index.html">Yogasthali</a></h1>
+        <p>AI Yoga Trainer</p>
+      </div>
+    </div>
+
+    <nav>
+      <a href="#">About</a>
+      <a href="Yoga.html">Yoga</a>
+      <a href="#">Trainer</a>
+      <button class="signin-btn">Sign In</button>
+    </nav>
+  </header>
+
+  <!-- About Section -->
+  <section class="about">
+    <div class="about-content">
+      <div class="about-text">
+        <h2>About Yogasthali</h2>
+        <h3>An AI Yoga Trainer</h3>
+
+        <p>
+          Welcome to Yogasthali, your personal space for mindful movement and
+          balanced living.
+        </p>
+
+        <p>
+          Yogasthali blends the ancient wisdom of yoga with modern technology
+          to guide you toward better posture, deeper breathing, and inner calm
+          — anytime, anywhere.
+        </p>
+
+        <p>
+          Our live camera-assisted feedback system helps you refine your poses
+          in real time, offering gentle corrections and insights to improve
+          your practice. Whether you're a beginner exploring basic flows or an
+          experienced practitioner perfecting alignment, Yogasthali supports
+          you every step of the way.
+        </p>
+
+        <p>
+          With personalized session recommendations, progress tracking, and
+          guided routines for different moods and times of day, Yogasthali
+          transforms your daily practice into a holistic wellness experience.
+        </p>
+      </div>
+
+      <div class="about-image">
+        <img src="img/Yoga1.jpg" alt="Yoga class" />
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer>
+    <p>© 2025 Yogasthali. All rights reserved.</p>
+    <div class="social-icons">
+      <a href="#"><i class="fab fa-facebook-f"></i></a>
+      <a href="#"><i class="fab fa-linkedin-in"></i></a>
+      <a href="#"><i class="fab fa-youtube"></i></a>
+      <a href="#"><i class="fab fa-instagram"></i></a>
+    </div>
+  </footer>
+</body>
+
+</html>
