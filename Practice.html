@@ -4,55 +4,99 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Yogasthali - AI Yoga Trainer</title>
+  <script src="https://cdn.jsdelivr.net/npm/p5@1.6.0/lib/p5.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/1.6.0/addons/p5.sound.min.js"></script>
+  <script src="https://unpkg.com/ml5@latest/dist/ml5.min.js"></script>
+  <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"
+    />
   <style>
+     * {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    }
+
     body {
-      margin: 0;
-      font-family: Arial, sans-serif;
-      background: #f9d9f2;
-      display: flex;
-      flex-direction: column;
-      min-height: 100vh;
+        font-family: "Inter", Arial, sans-serif;
+        color: #333;
+        background-color: #ffd9f9;
+        /* Pink full-page background */
+        min-height: 100vh;
+        display: flex;
+        flex-direction: column;
     }
 
-    /* Navbar */
-    header {
-      background: white;
-      border-bottom: 1px solid #e5e5e5;
-      padding: 12px 50px;
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-    }
+     header {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        padding: 1rem 2rem;
+        background: white;
+        box-shadow: 0 1px 4px rgba(0, 0, 0, 0.05);
+      }
 
-    .logo {
-      display: flex;
-      align-items: center;
-      gap: 10px;
-    }
+      .logo {
+        display: flex;
+        align-items: center;
+        gap: 0.75rem;
+      }
 
-    .logo-circle {
-      width: 45px;
-      height: 45px;
-      background: lightgray;
-      border-radius: 50%;
-    }
+      .logo-circle {
+        width: 40px;
+        height: 40px;
+        background: url(img/Logo.png) no-repeat center center;
+        background-size: cover;
+        border-radius: 50%;
+      }
 
-    nav a {
-      margin: 0 12px;
-      text-decoration: none;
-      color: black;
-      font-size: 14px;
-    }
+      .logo-text h1 {
+        font-size: 1rem;
+        font-weight: 600;
+      }
+      .logo-text h1>a {
+        text-decoration: none;
+        color: #000;
+      }
 
-    .btn {
-      background: black;
-      color: white;
-      padding: 6px 16px;
-      border-radius: 6px;
-      font-size: 14px;
-      border: none;
-      cursor: pointer;
-    }
+      .logo-text p {
+        font-size: 0.8rem;
+        color: #6b7280;
+        margin-top: -2px;
+      }
+
+      nav {
+        display: flex;
+        align-items: center;
+        gap: 1.5rem;
+      }
+
+      nav a {
+        text-decoration: none;
+        color: #333;
+        font-weight: 500;
+        transition: color 0.2s;
+      }
+
+      nav a:hover {
+        color: #000;
+      }
+
+      .signin-btn {
+        background: #000;
+        color: #fff;
+        border: none;
+        padding: 0.5rem 1rem;
+        font-size: 0.8rem;
+        border-radius: 5px;
+        cursor: pointer;
+        transition: background 0.3s;
+      }
+
+      .signin-btn:hover {
+        background: #333;
+      }
 
     /* Main Section */
     .main-container {
@@ -65,8 +109,8 @@
     }
 
     .box {
-      width: 260px;
-      height: 330px;
+      width: 300px;
+      height: 450px;
       background: #d9d9d9;
       border-radius: 10px;
       display: flex;
@@ -75,80 +119,138 @@
       text-align: center;
       padding: 10px;
     }
+    .box-1 {
+      width: 260px;
+      height: 300px;
+      background: #d9d9d9;
+      border-radius: 10px;
+      overflow: hidden;      /* IMPORTANT */
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+
+    #poseImg {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;   /* OR -> cover (choose one) */
+    }
+
+    #webcamContainer {
+      width: 300px;
+      height: 450px;
+      overflow: visible;
+    }
+
+    canvas {
+      display: block !important;
+      position: relative !important;
+    }
+
 
     .pose-section {
       text-align: center;
+      margin-left: 80px;
     }
 
+    .pose-section h2{
+      margin-bottom: 32px;
+    }
+
+
     .timer {
-      margin-top: 10px;
+      margin-top: 20px;
       font-size: 16px;
     }
 
-    /* Footer */
-    footer {
-      background: white;
-      padding: 20px 40px;
-      font-size: 14px;
-      border-top: 1px solid #ddd;
-    }
+   footer {
+        background: #fff;
+        padding: 4rem 3rem;
+        text-align: center;
+        color: #666;
+        font-size: 0.9rem;
+        border-top: 1px solid #eee;
+        }
 
-    .social {
-      margin-top: 10px;
-      display: flex;
-      gap: 10px;
-    }
+        .social-icons {
+        margin-top: 2rem;
+        }
 
-    .social div {
-      width: 18px;
-      height: 18px;
-      background: #d9d9d9;
-      border-radius: 4px;
+        .social-icons a {
+        color: #555;
+        margin: 0 0.5rem;
+        text-decoration: none;
+        font-size: 1rem;
+        transition: color 0.3s;
+        }
+
+        .social-icons a:hover {
+        color: #000;
+        }
+
+        @media (max-width: 768px) {
+        .yoga-intro h2 {
+            font-size: 1.75rem;
+        }
+
+        .yoga-intro p {
+            font-size: 0.95rem;
+        }
+      
+      #webcamContainer { border: 2px solid lime; }
+      canvas { outline: 2px solid red; }
     }
   </style>
 </head>
 <body>
-
-  <!-- Navbar -->
   <header>
-    <div class="logo">
-      <div class="logo-circle"></div>
-      <div>
-        <strong>Yogasthali</strong><br />
-        <small>AI Yoga Trainer</small>
+      <div class="logo">
+        <div class="logo-circle"></div>
+        <div class="logo-text">
+          <h1><a href="index.html">Yogasthali</a></h1>
+          <p>AI Yoga Trainer</p>
+        </div>
       </div>
-    </div>
 
-    <nav>
-      <a href="#">About</a>
-      <a href="#">Yoga</a>
-      <a href="#">Trainer</a>
-      <button class="btn">Sign In</button>
-    </nav>
-  </header>
+      <nav>
+        <a href="about.html">About</a>
+        <a href="Yoga.html">Yoga</a>
+        <a href="trainer.html">Trainer</a>
+        <button class="signin-btn">Sign In</button>
+      </nav>
+    </header>
 
-  <!-- Main Content -->
   <div class="main-container">
 
-    <div class="box">Webcam Container</div>
+    <div class="box">
+      <div id="webcamContainer"></div>
+    </div>
 
     <div class="pose-section">
-      <h2>Tadasana</h2>
-      <div class="box"></div>
+      <h2 id="poseName">Tadasana</h2>
+      <div class="box-1">
+        <img id="poseImg" />
+      </div>
       <div class="timer">
         <strong>00:00</strong><br />Seconds left to hold
       </div>
+
+      <h3 id="welldone"></h3>
+      <div id="sparkles" style="display:none;">✨✨✨</div>
+    </div>
     </div>
 
   </div>
 
-  <!-- Footer -->
-  <footer>
-    © 2025 Yogasthali. All rights reserved.
-    <div class="social">
-      <div></div><div></div><div></div><div></div>
-    </div>
+  <footer class="footer">
+     <p>© 2025 Yogasthali. All rights reserved.</p>
+      <div class="social-icons">
+        <a href="#"><i class="fab fa-facebook-f"></i></a>
+        <a href="#"><i class="fab fa-linkedin-in"></i></a>
+        <a href="#"><i class="fab fa-youtube"></i></a>
+        <a href="#"><i class="fab fa-instagram"></i></a>
+      </div>
   </footer>
-
+<script src="Practice.js"></script>
 </body>
 </html>
