@@ -9,15 +9,23 @@
       href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"
     />
   <style>
-    body {
-      margin: 0;
-      font-family: Arial, sans-serif;
-      background-color: #F9D7F9;
-      color: #222;
+     * {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
     }
 
-    /* Header */
-    header {
+    body {
+        font-family: "Inter", Arial, sans-serif;
+        color: #333;
+        background-color: #ffd9f9;
+        /* Pink full-page background */
+        min-height: 100vh;
+        display: flex;
+        flex-direction: column;
+    }
+
+     header {
         display: flex;
         justify-content: space-between;
         align-items: center;
@@ -87,11 +95,10 @@
         background: #333;
       }
 
-
-    .instruction-section {
-        background: #f6c9e8;
-        padding: 50px 0;
-        }
+      .instruction-section{
+        margin-top: 100px;
+        margin-bottom: 100px;
+      }
 
         .instruction-container {
         max-width: 1100px;
@@ -209,7 +216,7 @@
       <nav>
         <a href="about.html">About</a>
         <a href="Yoga.html">Yoga</a>
-        <a href="#">Trainer</a>
+        <a href="trainer.html">Trainer</a>
         <button class="signin-btn">Sign In</button>
       </nav>
  </header>
@@ -229,7 +236,7 @@
 
     <div class="instruction-image-box">
         <img src="img/Yoga1.jpg" alt="Yoga Class">
-        <button class="begin-btn">Let's Begin</button>
+        <a href="Practice.html"><button class="begin-btn">Let's Begin</button></a>
         </div>
     </div>
     </section>
