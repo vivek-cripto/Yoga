@@ -8,11 +8,12 @@ let state = "waiting";
 
 let posesArray = [
   "TADASANA",
+  "VRIKSHASANA",
+  "UTKATASANA",
   "VIRABHADRASANA I",
   "VIRABHADRASANA II",
-  "VRIKSHASANA",
   "TRIKONASANA",
-  "Adho Mukho Sawasana"
+  
 ];
 
 let imgArray = [];
@@ -30,7 +31,7 @@ let wave;
 
 function setup() {
   // Create canvas INSIDE your .box webcam container
-  let cam = createCanvas(300, 450);
+  let cam = createCanvas(320, 240);
   cam.parent("webcamContainer");
 
   //----------------------------------------------------------
@@ -39,8 +40,8 @@ function setup() {
   try {
     video = createCapture({
       video: {
-        width: { ideal: 480 },
-        height: { ideal: 640 },
+        width: { ideal: 320 },
+        height: { ideal: 240 },
         facingMode: "user"     // selfie mode
       }
     });
@@ -49,7 +50,7 @@ function setup() {
   }
 
   // Match canvas size
-  video.size(300, 450);
+  video.size(320, 240);
 
   //----------------------------------------------------------
   // 2️⃣ Make raw <video> element visible & styled
@@ -62,11 +63,11 @@ function setup() {
       video.elt.style.position = "absolute";
       video.elt.style.left = "0px";
       video.elt.style.top = "0px";
-      video.elt.style.width = "300px";
-      video.elt.style.height = "450px";
+      video.elt.style.width = "320px";
+      video.elt.style.height = "240px";
       video.elt.style.objectFit = "cover";
       video.elt.style.opacity = "1";
-      video.elt.style.zIndex = "0";
+      video.elt.style.zIndex = "1";
       video.elt.setAttribute("playsinline", "");
 
       //----------------------------------------------------------
@@ -143,7 +144,7 @@ function setup() {
   // 6️⃣ Load Pose Images
   //----------------------------------------------------------
   imgArray[0] = new Image();
-  imgArray[0].src = "img/urdhava.jpg";
+  imgArray[0].src = "img/Tadasana.jpeg";
 
   imgArray[1] = new Image();
   imgArray[1].src = "img/warrior1.gif";

@@ -6,7 +6,7 @@
   <title>Yogasthali - AI Yoga Trainer</title>
   <script src="https://cdn.jsdelivr.net/npm/p5@1.6.0/lib/p5.js"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/1.6.0/addons/p5.sound.min.js"></script>
-  <script src="https://unpkg.com/ml5@latest/dist/ml5.min.js"></script>
+  <script src="https://unpkg.com/ml5@0.12.2/dist/ml5.min.js"></script>
   <link
       rel="stylesheet"
       href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"
@@ -109,8 +109,8 @@
     }
 
     .box {
-      width: 300px;
-      height: 450px;
+      width: 320px;
+      height: 240px;
       background: #d9d9d9;
       border-radius: 10px;
       display: flex;
@@ -137,14 +137,17 @@
     }
 
     #webcamContainer {
-      width: 300px;
-      height: 450px;
+      width: 320px;
+      height: 240px;
       overflow: visible;
+      position: relative;
     }
 
     canvas {
-      display: block !important;
-      position: relative !important;
+      position: absolute !important;
+      top: 0;
+      left: 0;
+      z-index: 5 !important;
     }
 
 
@@ -229,11 +232,13 @@
     <div class="pose-section">
       <h2 id="poseName">Tadasana</h2>
       <div class="box-1">
-        <img id="poseImg" />
+        <img id="poseImg"/>
       </div>
       <div class="timer">
-        <strong>00:00</strong><br />Seconds left to hold
+        <span id="sec"></span>
+        <strong id="time">00:30</strong><br />Seconds left to hold
       </div>
+
 
       <h3 id="welldone"></h3>
       <div id="sparkles" style="display:none;">✨✨✨</div>
