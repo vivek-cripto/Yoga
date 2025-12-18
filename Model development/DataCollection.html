@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Yogasthali - Data Collection</title>
+
+  <script src="https://cdn.jsdelivr.net/npm/p5@1.6.0/lib/p5.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/1.6.0/addons/p5.sound.min.js"></script>
+  <script src="https://unpkg.com/ml5@0.12.2/dist/ml5.min.js"></script>
+
+  <style>
+    body {
+      text-align: center;
+      background: #f3f3f3;
+      font-family: Arial;
+    }
+
+    #cameraContainer {
+      width: 640px;
+      margin: 0 auto;
+      border: 2px solid #333;
+      border-radius: 10px;
+      background: #000;
+      overflow: hidden;
+    }
+
+    #buttonContainer {
+      margin-top: 15px;
+    }
+
+    button {
+      padding: 12px 20px;
+      margin: 6px;
+      font-size: 18px;
+      border-radius: 8px;
+      border: none;
+      background: #2979ff;
+      color: white;
+      cursor: pointer;
+    }
+
+    button:hover {
+      background: #1a56d4;
+    }
+  </style>
+</head>
+
+<body>
+
+  <h1>Yogasthali – Data Collection Tool</h1>
+  <p>Select a pose number to start recording keypoints.</p>
+
+  <!-- ⭐ CAMERA CONTAINER ⭐ -->
+  <div id="cameraContainer"></div>
+
+  <div id="buttonContainer">
+    <button onclick="startCollection(1)">Pose 1</button>
+    <button onclick="startCollection(2)">Pose 2</button>
+    <button onclick="startCollection(3)">Pose 3</button>
+    <button onclick="startCollection(4)">Pose 4</button>
+    <button onclick="startCollection(5)">Pose 5</button>
+    <button onclick="startCollection(6)">Pose 6</button>
+    <br />
+    <button onclick="stopCollection()" style="background:#ff9800">STOP</button>
+    <button onclick="saveData()" style="background:#4caf50">SAVE DATA</button>
+  </div>
+
+  <script src="DataCollection.js"></script>
+</body>
+</html>
